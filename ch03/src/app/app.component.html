@@ -1,0 +1,63 @@
+<app-hero [name]="hero" (liked)="onLike()"></app-hero>
+<!--<app-hero [name]="hero" (nameChange)="hero=$event"></app-hero>-->
+<hr>
+<h1>Inputs and Outputs</h1>
+<app-item-detail [item]="currentItem"></app-item-detail>
+<input [(ngModel)]="currentItem">
+<hr>
+
+<app-item-output (newItemEvent)="addItem($event)"></app-item-output>
+<h3>Parent component receiving value via @Output()</h3>
+
+<ul>
+  <li *ngFor="let item of items">{{item}}</li>
+</ul>
+<hr>
+
+<h2>Input and Output together</h2>
+<p>Open the console to see the EventEmitter at work when you click Delete.</p>
+<app-input-output [item]="currentItem" (deleteRequest)="crossOffItem($event)"></app-input-output>
+<hr>
+
+<h2>Input and Output in the component class metadata</h2>
+<p>Open the console to see the EventEmitter at work when you click Buy.</p>
+<p style="color: red">*Use @Input rather than the `inputs` metadata property</p>
+<app-in-the-metadata [clearanceItem]="lastChanceItem" (buyEvent)="buyClearanceItem($event)"></app-in-the-metadata>
+<hr>
+
+<h1 id="two-way">Two-way Binding</h1>
+<div id="two-way-1">
+  <app-sizer [(size)]="fontSizePx"></app-sizer>
+  <div [style.font-size.px]="fontSizePx">Resizable Text</div>
+  <label>FontSize (px): <input [(ngModel)]="fontSizePx"/></label>
+</div>
+<br>
+<div id="two-way-2">
+  <h2>De-sugared two-way binding</h2>
+  <app-sizer [size]="fontSizePx" (sizeChange)="fontSizePx=$event"></app-sizer>
+</div>
+<hr>
+<h2>Aliasing Inputs and Outputs</h2>
+<p>See aliasing.component.ts for aliases and the console for the EventEmitter console logs.</p>
+
+<p>input2 : <input [(ngModel)]="currentItem2"/></p>
+<app-aliasing
+  [saveForLaterItem1]="currentItem"
+  [wishListItem]="currentItem2"
+  (saveForLaterEvent1)="saveForLater($event)"
+  (wishEvent)="addToWishList($event)">
+</app-aliasing>
+
+<h2>Wishlist:</h2>
+<ul>
+  <li *ngFor="let wish of wishlist">{{wish}}</li>
+</ul>
+<hr>
+<div id="two-Test-1">
+  <p>TestOneWay In Component</p>
+  <button type="button" (click)="decrease()" title="smaller">-</button>
+  <button type="button" (click)="increase()" title="bigger">+</button>
+  <p [style.font-size.px]="fontSizeOneWayPx">Resizable Text: <input [(ngModel)]="fontSizeOneWayPx"/></p>
+</div>
+<hr>
+
