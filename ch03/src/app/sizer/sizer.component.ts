@@ -7,9 +7,18 @@ import {Component, Input, Output, EventEmitter, SimpleChanges, OnChanges} from '
 })
 export class SizerComponent implements OnChanges {
 
-  @Input() size: number;
-  @Output() sizeChange = new EventEmitter<number>();
-
+  @Input() public priceValue: number;
+  @Output() public priceChange = new EventEmitter<number>();
+  @Input() public size: number;
+  @Output() public sizeChange = new EventEmitter<number>();
+  // @Input()
+  // public get price(): number {
+  //   return this.priceValue;
+  // }
+  //
+  // public set price(value: number) {
+  //   this.priceValue = value;
+  // }
 
   increase(): void {
     this.resize(+1);
@@ -22,6 +31,8 @@ export class SizerComponent implements OnChanges {
   resize(delta: number): void {
     this.size = Math.min(40, Math.max(8, +this.size + delta));
     this.sizeChange.emit(this.size);
+    this.priceValue = this.priceValue + delta;
+    this.priceChange.emit(this.priceValue);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -33,5 +44,4 @@ export class SizerComponent implements OnChanges {
       console.log(`sizeValue changed from ${oldValue} to ${newValue}`);
     }
   }
-
 }

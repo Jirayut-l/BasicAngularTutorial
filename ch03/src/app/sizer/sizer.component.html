@@ -2,4 +2,8 @@
   <button type="button" (click)="decrease()" title="smaller">-</button>
   <button type="button" (click)="increase()" title="bigger">+</button>
   <span [style.font-size.px]="size">FontSize: {{size}}px</span>
+
+  <h3>Price</h3>
+  <input type="number" [(ngModel)]="priceValue" >
+  <p>{{priceValue}}</p>
 </div>

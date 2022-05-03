@@ -15,6 +15,7 @@ export class AppComponent {
   lastChanceItem = 'Beanbag';
   wishlist = ['Drone', 'Computer'];
   currentItem2 = 'Television Input2';
+  price = 50;
 
   onLike(): void {
     window.alert(`I like ${this.hero}`);
@@ -51,4 +52,5 @@ export class AppComponent {
     this.wishlist.push(wish);
     console.warn(this.wishlist);
   }
+
 }

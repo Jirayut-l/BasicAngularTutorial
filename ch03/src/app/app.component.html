@@ -27,14 +27,14 @@
 
 <h1 id="two-way">Two-way Binding</h1>
 <div id="two-way-1">
-  <app-sizer [(size)]="fontSizePx"></app-sizer>
+  <app-sizer [(size)]="fontSizePx" [priceValue]="price" (priceChange)="price=$event" ></app-sizer>
   <div [style.font-size.px]="fontSizePx">Resizable Text</div>
   <label>FontSize (px): <input [(ngModel)]="fontSizePx"/></label>
 </div>
 <br>
 <div id="two-way-2">
   <h2>De-sugared two-way binding</h2>
-  <app-sizer [size]="fontSizePx" (sizeChange)="fontSizePx=$event"></app-sizer>
+  <app-sizer [size]="fontSizePx" (sizeChange)="fontSizePx=$event"  [priceValue]="price" (priceChange)="price=$event"></app-sizer>
 </div>
 <hr>
 <h2>Aliasing Inputs and Outputs</h2>
