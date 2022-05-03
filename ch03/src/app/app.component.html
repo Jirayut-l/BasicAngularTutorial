@@ -27,7 +27,7 @@
 
 <h1 id="two-way">Two-way Binding</h1>
 <div id="two-way-1">
-  <app-sizer [(size)]="fontSizePx" [priceValue]="price" (priceChange)="price=$event" ></app-sizer>
+  <app-sizer [(size)]="fontSizePx" [priceValue]="price" (priceChange)="price=$event"></app-sizer>
   <div [style.font-size.px]="fontSizePx">Resizable Text</div>
   <label>FontSize (px): <input [(ngModel)]="fontSizePx"/></label>
 </div>

@@ -37,11 +37,13 @@ export class SizerComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     const sizeValue = changes.size;
+    const price = changes.priceValue;
     const oldValue = sizeValue.previousValue;
     const newValue = sizeValue.currentValue;
 
     if (!sizeValue.isFirstChange()) {
       console.log(`sizeValue changed from ${oldValue} to ${newValue}`);
+      console.log(`priceValue changed from ${price.previousValue} to ${price.currentValue}`);
     }
   }
 }
