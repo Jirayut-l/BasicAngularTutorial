@@ -1,4 +1,4 @@
-import { Directive, HostBinding, HostListener } from '@angular/core';
+import {Directive, HostBinding, HostListener} from '@angular/core';
 
 @Directive({
   selector: '[appNumeric]'
@@ -9,7 +9,7 @@ export class NumericDirective {
   currentClass: string;
 
   @HostListener('keypress', ['$event'])
-  onKeyPress(event: KeyboardEvent) {
+  onKeyPress(event: KeyboardEvent): void {
     const charCode = event.key.charCodeAt(0);
     if (charCode > 31 && (charCode < 48 || charCode > 57)) {
       this.currentClass = 'invalid';
@@ -19,6 +19,7 @@ export class NumericDirective {
     }
   }
 
-  constructor() { }
+  constructor() {
+  }
 
 }

@@ -4,6 +4,14 @@
 <app-pipes></app-pipes>
 <p appCopyright></p>
 <input appNumeric />
+
+<h2>UnlessDirective</h2>
 <div *appPermission="['admin', 'agent']">
-  <h3>This area can be accessed by admins and agents only</h3>
+  <h3>This area can be accessed by admins and agents only UnlessDirective</h3>
 </div>
+
+<h4>UnlessDirective with template</h4>
+<ng-template [appPermission]="['admin', 'agent']">
+  <h3>This area can be accessed by admins and agents only</h3>
+</ng-template>
+
