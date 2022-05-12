@@ -5,9 +5,7 @@ import {Directive, HostBinding, HostListener} from '@angular/core';
 })
 export class NumericDirective {
 
-  @HostBinding('class')
-  currentClass: string;
-
+  @HostBinding('class') currentClass: string;
   @HostListener('keypress', ['$event'])
   onKeyPress(event: KeyboardEvent): void {
     const charCode = event.key.charCodeAt(0);

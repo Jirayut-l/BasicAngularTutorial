@@ -9,6 +9,7 @@ import { SortPipe } from './sort.pipe';
 import { CopyrightDirective } from './copyright.directive';
 import { NumericDirective } from './numeric.directive';
 import { PermissionDirective } from './permission.directive';
+import { AppHighLightDirective } from './app-high-light.directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PermissionDirective } from './permission.directive';
     SortPipe,
     CopyrightDirective,
     NumericDirective,
-    PermissionDirective
+    PermissionDirective,
+    AppHighLightDirective
   ],
   imports: [
     BrowserModule
